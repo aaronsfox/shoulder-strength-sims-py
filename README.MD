@@ -1,0 +1,3 @@
+# shoulder-strength-sims-py
+
+Placeholder for repo read me...
