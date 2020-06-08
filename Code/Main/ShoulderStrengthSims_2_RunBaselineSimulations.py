@@ -27,7 +27,12 @@ Movement task options that can be simulated are currently:
 
 import opensim as osim
 import os
-import math
+import pandas as pd
+
+os.chdir('..\\Supplementary')
+import osimHelper
+
+os.chdir('..\\Main')
 
 # %% Folder set up
 
@@ -55,6 +60,16 @@ if not os.path.isdir(taskName): #check if directory already exists
 #Set task results directory
 taskPath = resultsPath+'\\'+taskName
 
+#Load task bounds
+
+#Navigate to supporting data directory
+os.chdir('..\\SupportingData')
+
+#Load in dataframes
+taskBoundsElv = pd.read_csv('shoulder_elv_bounds.csv', index_col = 'Task')
+taskBoundsRot = pd.read_csv('shoulder_rot_bounds.csv', index_col = 'Task')
+taskBoundsAng = pd.read_csv('elv_angle_bounds.csv', index_col = 'Task')
+
 # %% Model set up
 
 #Navigate to model directory
@@ -63,14 +78,6 @@ os.chdir(modelPath)
 
 #Add geometry directory
 osim.ModelVisualizer.addDirToGeometrySearchPaths(modelPath+'\\Geometry')
-
-# %% Simulation set up
-
-#Create the Moco study
-study = osim.MocoStudy()
-
-#Initialise the problem
-problem = study.updProblem()
 
 #Load the baseline model
 osimModel = osim.Model(modelPath+'\\BaselineModel.osim')
@@ -91,50 +98,129 @@ if 'Reach' in taskName:
     osimModel.getBodySet().get('hand_r').setMass(newHandMass)
 
 #Add relevant torque actuators to each degree of freedom
-# addCoordinateActuator(osimModel,'elv_angle',1.0,[1,-1],'_reserve')
+#Loop through and add coordinate actuators
+#Don't add anything for the thorax
+for cc in range(0,osimModel.updCoordinateSet().getSize()):    
+    #Get current coordinate name
+    coordName = osimModel.updCoordinateSet().get(cc).getName()
+    #Conditional statements for adding actuators
+    if coordName == 'elbow_flexion':
+        #Add an idealised torque actuator
+        osimHelper.addCoordinateActuator(osimModel,coordName,75.0,
+                                         [float('inf'),float('-inf')],'_torque')
+    elif coordName == 'pro_sup':
+        #Add an idealised torque actuator
+        osimHelper.addCoordinateActuator(osimModel,coordName,30.0,
+                                         [float('inf'),float('-inf')],'_torque')
+    elif coordName == 'elv_angle':
+        #Add a reserve torque actuator
+        osimHelper.addCoordinateActuator(osimModel,coordName,1.0,
+                                         [float('inf'),float('-inf')],'_reserve')
+    elif coordName == 'shoulder_elv' or coordName == 'shoulder_rot':
+        #Add a reserve torque actuator
+        osimHelper.addCoordinateActuator(osimModel,coordName,1.0,
+                                         [1.0,-1.0],'_reserve')
 
-##### TODO: add this to an osimHelperFunction script instead of being here...
+#Finalise model
+osimModel.finalizeFromProperties()
 
-# Define function to use for adding coordinate actuators
-def addCoordinateActuator(modelObject = None, coordinate = None, optForce = 1.0,
-                          controlLevel = [math.inf,math.inf*-1], appendStr = '_torque'):
-    
-    # Convenience function for adding a coordinate actuator to model
-    #
-    # Input:    modelObject - Opensim model object to add actuator to
-    #           coordinate - string of coordinate name for actuator
-    #           optForce - value for actuators optimal force
-    #           controlLevel - [x,y] values for max and min control
-    #           appendStr - string to append to coordinate name in setting actuator name
-    
-    #Check for model object
-    if modelObject is None:
-        raise ValueError('A model object must be included')
-    
-    #Check for coordinate
-    if coordinate is None:
-        raise ValueError('A coordinate string must be specified')
-        
-    #Create actuator
-    actu = osim.CoordinateActuator()
-    
-    #Set name
-    actu.setName(coordinate+appendStr)
+#Something weird going on later if I try and call the model processor directly
+#from the model object here (says the model has no subcomponents?). A workaround
+#is to process print out the model and call it to the processor via its filename,
+#and then get a variable to call the processed model.
 
-    #Set coordinate for actuator
-    actu.setCoordinate(modelObject.getCoordinateSet().get(coordinate))
-    
-    #Set optimal force
-    actu.setOptimalForce(optForce)
-    
-    #Set control levels    
-    actu.setMaxControl(controlLevel[0])
-    actu.setMinControl(controlLevel[1])
-    
-    #Add actuator to models forceset
-    modelObject.updForceSet().append(actu)
-        
-    
+#Print out the edited model
+osimModel.printToXML('simModel.osim')
 
+#Set up a model processor to configure model
+modelProcessor = osim.ModelProcessor('simModel.osim')
+
+#Convert model muscles to DeGrooteFregly type
+modelProcessor.append(osim.ModOpReplaceMusclesWithDeGrooteFregly2016())
+
+#Append settings for muscle models
+#Set to ignore tendon compliance
+modelProcessor.append(osim.ModOpIgnoreTendonCompliance())
+#Set to ignore conservative passive fiber forces
+modelProcessor.append(osim.ModOpIgnorePassiveFiberForcesDGF())
+#Set the fiber damping low to limit non-conservative passive forces
+#This may also serve to limit the negative muscle forces that can happen
+modelProcessor.append(osim.ModOpFiberDampingDGF(1e-05))
+#Scale active force width of muscles
+modelProcessor.append(osim.ModOpScaleActiveFiberForceCurveWidthDGF(1.5))
+
+#Process and get a variable to call the model
+simModel = modelProcessor.process()
+
+#Clean up the printed out model file from the directory
+os.remove('simModel.osim')
+
+# %% Simulation set up
+
+#Create the Moco study
+study = osim.MocoStudy()
+
+#Initialise the problem
+problem = study.updProblem()
+
+#Set the model processor in the problem
+problem.setModel(simModel)
+
+#Set time bounds on the problem
+problem.setTimeBounds(0, [0.1,1.0])
+
+#Define marker end point goals
+osimHelper.addMarkerEndPoints(taskName,problem,simModel)
+
+#Define kinematic task bounds
+osimHelper.addTaskBounds(taskName,problem,simModel,taskBoundsElv,taskBoundsRot,taskBoundsAng)
+
+#Add a control cost to the problem
+problem.addGoal(osim.MocoControlGoal('effort',1))
+
+#Add a final time goal to the problem
+problem.addGoal(osim.MocoFinalTimeGoal('time',1))
+
+#Configure the solver
+solver = study.initCasADiSolver()
+solver.set_num_mesh_intervals(meshInterval)
+solver.set_verbosity(2)
+solver.set_optim_solver('ipopt')
+solver.set_optim_convergence_tolerance(1e-3)
+solver.set_optim_constraint_tolerance(1e-3)
+
+#Set the guess to an existing solution for this task from existing work
+#Note that this will be slightly off given the previous study included forces
+#that approximated ligaments and joint capsule passive resistance, but should 
+#still work as an OK start.
+
+#Navigate to guess directory
+os.chdir('..\\GuessFiles')
+
+#Set guess path
+guessPath = os.getcwd()
+
+#Set guess in solver
+#Note an accesory function is used here as some solution files seem to generate
+#NaN's in the last row of the slack variables, which generates a Casadi error
+#when attempting to use as a guess.
+osimHelper.fixGuessFile(guessPath+'\\'+taskName+'_StartingGuess.sto',solver)
+
+# %% Solve!
+
+#Navigate to task results directory
+os.chdir(taskPath)
+
+#Set study name
+study.setName('BaselineSim_'+taskName+'_'+str(meshInterval*2+1)+'nodes')
+
+#Print setup file to directory
+study.printToXML('BaselineSim_'+taskName+'_'+str(meshInterval*2+1)+'nodes.omoco')
+
+#Run optimisation
+##### TODO: figure out how to iteratively write out IPOPT output???
+baselineSolution = study.solve()
+
+# %% Re-run with JRF goals...
 
 # %% ----- End of ShoulderStrengthSims_2_RunBaselineSimulations.py ----- %% #
