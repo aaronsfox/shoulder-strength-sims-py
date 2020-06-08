@@ -9,3 +9,9 @@ Placeholder for repo read me...
 *** TODO: add any other packages installed to assist ***
 
 *** TODO: could refine environment and create a .yml file to assist in building ***
+
+* Current Packages *
+
+- os
+- pandas
+- math
