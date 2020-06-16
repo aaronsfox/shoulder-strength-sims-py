@@ -1,0 +1,7 @@
+name: opensim-moco
+channels:
+ - conda-forge
+ - defaults
+dependencies:
+ - pandas=1.*
+ - python=3.7.*
