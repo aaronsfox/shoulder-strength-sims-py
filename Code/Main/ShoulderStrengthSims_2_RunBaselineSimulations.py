@@ -47,7 +47,7 @@ taskNo = int(taskNo)
 if taskNo == 1:
     print('Concentric upward reach 105 task selected.')
     taskName = 'ConcentricUpwardReach105'
-    meshInterval = 50
+    meshInterval = 100
 else:
     raise ValueError('No tasks match the input number')
     
@@ -166,8 +166,22 @@ problem = study.updProblem()
 #Set the model processor in the problem
 problem.setModel(simModel)
 
+#Navigate to guess directory
+os.chdir('..\\GuessFiles')
+
+#Set guess path
+guessPath = os.getcwd()
+
 #Set time bounds on the problem
-problem.setTimeBounds(0, [0.1,1.0])
+##### NOTE: first iteration with end time bounds seemed to try and solve to the
+##### the final end time bound (i.e. 1.0) rather than as fast as possible. Test
+##### and see whether removing these fixes it.
+# Set to a percentage of the final guess time to end
+timeLB = 0.9*osim.Storage(taskName+'_StartingGuess.sto').getLastTime()
+timeUB = 1.1*osim.Storage(taskName+'_StartingGuess.sto').getLastTime()
+problem.setTimeBounds(osim.MocoInitialBounds(0.0),
+                      osim.MocoFinalBounds(timeLB,timeUB))
+# problem.setTimeBounds(0,[])
 
 #Define marker end point goals
 osimHelper.addMarkerEndPoints(taskName,problem,simModel)
@@ -194,17 +208,14 @@ solver.set_optim_constraint_tolerance(1e-3)
 #that approximated ligaments and joint capsule passive resistance, but should 
 #still work as an OK start.
 
-#Navigate to guess directory
-os.chdir('..\\GuessFiles')
-
-#Set guess path
-guessPath = os.getcwd()
-
 #Set guess in solver
 #Note an accesory function is used here as some solution files seem to generate
 #NaN's in the last row of the slack variables, which generates a Casadi error
 #when attempting to use as a guess.
 osimHelper.fixGuessFile(guessPath+'\\'+taskName+'_StartingGuess.sto',solver)
+
+### nan's getting created in guess!!! happening in original created guess though
+### has something to do with mesh interval I think
 
 # %% Solve!
 
@@ -218,8 +229,11 @@ study.setName('BaselineSim_'+taskName+'_'+str(meshInterval*2+1)+'nodes')
 study.printToXML('BaselineSim_'+taskName+'_'+str(meshInterval*2+1)+'nodes.omoco')
 
 #Run optimisation
-##### TODO: figure out how to iteratively write out IPOPT output???
 baselineSolution = study.solve()
+
+
+# if os.getenv('OPENSIM_USE_VISUALIZER') != '0':
+#     study.visualize(baselineSolution)
 
 # %% Re-run with JRF goals...
 
