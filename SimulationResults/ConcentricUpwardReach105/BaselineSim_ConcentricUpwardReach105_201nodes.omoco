@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSimDocument Version="40000">
-	<MocoStudy name="BaselineSim_ConcentricUpwardReach105_101nodes">
+	<MocoStudy name="BaselineSim_ConcentricUpwardReach105_201nodes">
 		<!--The optimal control problem to solve.-->
 		<MocoProblem name="problem">
 			<!--List of 1 or more MocoPhases.-->
@@ -3819,6 +3819,166 @@
 							<!--Forces in the model (includes Actuators).-->
 							<ForceSet name="forceset">
 								<objects>
+									<CoordinateLimitForce name="shoulder_elv_ligaments">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>shoulder_elv</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>100</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>150</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>100</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>30</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>542.84230000000002</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="shoulder_elv_damping">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>shoulder_elv</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>1e-08</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>190</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>1e-08</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>190</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0.001745</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>1</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="elv_angle_ligaments">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>elv_angle</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>100</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>100</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>100</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>-60</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>545.44709999999998</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="elv_angle_damping">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>elv_angle</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>1e-08</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>190</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>1e-08</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>190</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0.001745</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>1</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="shoulder_rot_ligaments">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>shoulder_rot</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>100</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>-10</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>100</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>-60</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>485.46600000000001</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="shoulder_rot_damping">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>shoulder_rot</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>1e-08</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>190</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>1e-08</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>190</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0.001745</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>1</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="elbow_flexion_ligaments">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>elbow_flexion</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>0.30370000000000003</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>85</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>100</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>14</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>139.5813</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="elbow_flexion_damping">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>elbow_flexion</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>1e-08</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>190</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>1e-08</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>190</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0.001745</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>1</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="pro_sup_ligaments">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>pro_sup</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>50</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>60</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>50</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>-60</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>430.11860000000001</transition>
+									</CoordinateLimitForce>
+									<CoordinateLimitForce name="pro_sup_damping">
+										<!--Coordinate (name) to be limited.-->
+										<coordinate>pro_sup</coordinate>
+										<!--Stiffness of the passive limit force when coordinate exceeds upper limit. Note, rotational stiffness expected in N*m/degree.-->
+										<upper_stiffness>1e-08</upper_stiffness>
+										<!--The upper limit of the coordinate range of motion (rotations in degrees).-->
+										<upper_limit>190</upper_limit>
+										<!--Stiffness of the passive limit force when coordinate exceeds lower limit. Note, rotational stiffness expected in N*m/degree.-->
+										<lower_stiffness>1e-08</lower_stiffness>
+										<!--The lower limit of the coordinate range of motion (rotations in degrees).-->
+										<lower_limit>190</lower_limit>
+										<!--Damping factor on the coordinate's speed applied only when limit is exceeded. For translational has units N/(m/s) and rotational has Nm/(degree/s)-->
+										<damping>0.001745</damping>
+										<!--Transition region width in the units of the coordinate (rotations in degrees). Dictates the transition from zero to constant stiffness as coordinate exceeds its limit.-->
+										<transition>1</transition>
+									</CoordinateLimitForce>
 									<CoordinateActuator name="elv_angle_reserve">
 										<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
 										<min_control>-Inf</min_control>
@@ -5812,7 +5972,7 @@
 				<!--Bounds on final value.-->
 				<MocoFinalBounds name="time_final_bounds">
 					<!--1 value: required value. 2 values: lower, upper bounds on value.-->
-					<bounds>0.10000000000000001 1</bounds>
+					<bounds>0.63067563758017353 0.77082577926465656</bounds>
 				</MocoFinalBounds>
 				<!--The state variables' bounds.-->
 				<state_infos>
@@ -5916,7 +6076,7 @@
 		<!--The optimal control algorithm for solving the problem.-->
 		<MocoCasADiSolver name="solver">
 			<!--The number of uniformly-sized mesh intervals for the problem (default: 100). If a non-uniform mesh exists, the non-uniform mesh is used instead.-->
-			<num_mesh_intervals>50</num_mesh_intervals>
+			<num_mesh_intervals>100</num_mesh_intervals>
 			<!--0 for silent. 1 for only Moco's own output. 2 for output from CasADi and the underlying solver (default: 2).-->
 			<verbosity>2</verbosity>
 			<!--The optimization solver to use (default: ipopt).-->
