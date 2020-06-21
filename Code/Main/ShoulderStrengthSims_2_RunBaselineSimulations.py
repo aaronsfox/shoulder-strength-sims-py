@@ -47,7 +47,7 @@ taskNo = int(taskNo)
 if taskNo == 1:
     print('Concentric upward reach 105 task selected.')
     taskName = 'ConcentricUpwardReach105'
-    meshInterval = 100
+    meshInterval = 50 #100 mesh interval providing weird nan's in created guess
 else:
     raise ValueError('No tasks match the input number')
     
@@ -145,9 +145,16 @@ modelProcessor.append(osim.ModOpIgnoreTendonCompliance())
 modelProcessor.append(osim.ModOpIgnorePassiveFiberForcesDGF())
 #Set the fiber damping low to limit non-conservative passive forces
 #This may also serve to limit the negative muscle forces that can happen
-modelProcessor.append(osim.ModOpFiberDampingDGF(1e-05))
+modelProcessor.append(osim.ModOpFiberDampingDGF(1e-02))
+
+####### this parameter could be a factor in the different results coming up
+####### along with te active force width (if that didn't change). default is 0.1
+####### so this shift may be quite large (the original 1e-05 that is)?
+
 #Scale active force width of muscles
 modelProcessor.append(osim.ModOpScaleActiveFiberForceCurveWidthDGF(1.5))
+
+##### don't think active force width was altered either in original simulations...
 
 #Process and get a variable to call the model
 simModel = modelProcessor.process()
@@ -200,8 +207,8 @@ solver = study.initCasADiSolver()
 solver.set_num_mesh_intervals(meshInterval)
 solver.set_verbosity(2)
 solver.set_optim_solver('ipopt')
-solver.set_optim_convergence_tolerance(1e-3)
-solver.set_optim_constraint_tolerance(1e-3)
+solver.set_optim_convergence_tolerance(1e-4)
+solver.set_optim_constraint_tolerance(1e-4)
 
 #Set the guess to an existing solution for this task from existing work
 #Note that this will be slightly off given the previous study included forces

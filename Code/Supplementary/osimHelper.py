@@ -309,7 +309,7 @@ def fixGuessFile(guessFile = None, mocoSolver = None):
     randTraj = mocoSolver.createGuess()
     
     #Resample the randomly created guess if it doesn't match the guess file
-    if randTraj.getNumTimes != mocoTraj.getNumTimes():
+    if randTraj.getNumTimes() != mocoTraj.getNumTimes():
         randTraj.resampleWithNumTimes(mocoTraj.getNumTimes())
     
     #Set time for random guess to original trajectory
