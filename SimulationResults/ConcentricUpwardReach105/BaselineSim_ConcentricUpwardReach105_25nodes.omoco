@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSimDocument Version="40000">
-	<MocoStudy name="BaselineSim_ConcentricUpwardReach105_201nodes">
+	<MocoStudy name="BaselineSim_ConcentricUpwardReach105_25nodes">
 		<!--The optimal control problem to solve.-->
 		<MocoProblem name="problem">
 			<!--List of 1 or more MocoPhases.-->
@@ -4085,7 +4085,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4149,7 +4149,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4213,7 +4213,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4277,7 +4277,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4341,7 +4341,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4405,7 +4405,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4469,7 +4469,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4533,7 +4533,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4597,7 +4597,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4661,7 +4661,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4725,7 +4725,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4789,7 +4789,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4853,7 +4853,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4923,7 +4923,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -4999,7 +4999,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5075,7 +5075,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5151,7 +5151,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5221,7 +5221,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5297,7 +5297,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5373,7 +5373,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5443,7 +5443,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5513,7 +5513,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5583,7 +5583,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5653,7 +5653,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5723,7 +5723,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5787,7 +5787,7 @@
 										<!--Scale factor for the width of the active force-length curve. Larger values make the curve wider. Default: 1.0.-->
 										<active_force_width_scale>1.5</active_force_width_scale>
 										<!--The linear damping of the fiber. Default: 0.-->
-										<fiber_damping>1.0000000000000001e-05</fiber_damping>
+										<fiber_damping>0.01</fiber_damping>
 										<!--Fiber strain when the passive fiber force is 1 normalized force. Default: 0.6.-->
 										<passive_fiber_strain_at_one_norm_force>0.69999999999999996</passive_fiber_strain_at_one_norm_force>
 										<!--Tendon strain at a tension of 1 normalized force. Default: 0.049.-->
@@ -5972,7 +5972,7 @@
 				<!--Bounds on final value.-->
 				<MocoFinalBounds name="time_final_bounds">
 					<!--1 value: required value. 2 values: lower, upper bounds on value.-->
-					<bounds>0.63067563758017353 0.77082577926465656</bounds>
+					<bounds>0.10000000000000001 1</bounds>
 				</MocoFinalBounds>
 				<!--The state variables' bounds.-->
 				<state_infos>
@@ -6076,17 +6076,15 @@
 		<!--The optimal control algorithm for solving the problem.-->
 		<MocoCasADiSolver name="solver">
 			<!--The number of uniformly-sized mesh intervals for the problem (default: 100). If a non-uniform mesh exists, the non-uniform mesh is used instead.-->
-			<num_mesh_intervals>100</num_mesh_intervals>
+			<num_mesh_intervals>12</num_mesh_intervals>
 			<!--0 for silent. 1 for only Moco's own output. 2 for output from CasADi and the underlying solver (default: 2).-->
 			<verbosity>2</verbosity>
 			<!--The optimization solver to use (default: ipopt).-->
 			<optim_solver>ipopt</optim_solver>
 			<!--Tolerance used to determine if the objective is minimized (-1 for solver's default)-->
-			<optim_convergence_tolerance>0.001</optim_convergence_tolerance>
+			<optim_convergence_tolerance>0.0001</optim_convergence_tolerance>
 			<!--Tolerance used to determine if the constraints are satisfied (-1 for solver's default)-->
-			<optim_constraint_tolerance>0.001</optim_constraint_tolerance>
-			<!--A MocoTrajectory file storing an initial guess.-->
-			<guess_file></guess_file>
+			<optim_constraint_tolerance>0.0001</optim_constraint_tolerance>
 		</MocoCasADiSolver>
 	</MocoStudy>
 </OpenSimDocument>
